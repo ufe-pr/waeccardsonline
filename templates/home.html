@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAEC Scratch card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="body-wrapper">
+        <div class="request-form">
+            <h1>Request scratch card</h1>
+            <form action="{{ url_for("home") }}" method="post">
+                {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+                <div class="input-group">
+                    {{ field.label(class="input-label") }}
+                    {{ field(class="input-field", rows="8", placeholder=field.label.text) }}
+                    {% if field.errors %}
+                    <ul class="field-errors">
+                        {% for error in field.errors %}
+                        <li class="field-error">{{ error }}</li>                    
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                {{ form.csrf_token }}
+
+                <div class="input-group">
+                    {{ form.submit(class="input-field") }}
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

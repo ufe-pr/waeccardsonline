@@ -1,0 +1,10 @@
+gunicorn
+flask
+flask-wtf
+wtforms[email]
+flask-sqlalchemy
+flask-script
+flask-login
+flask-admin
+flask-mail
+psycopg2-binary

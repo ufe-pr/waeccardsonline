@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: rgba(57, 93, 146, 0.3);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.success {
+  color: #1ab641;
+}
+
+.body-wrapper, .center-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.center-flex {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  max-width: 540px;
+}
+
+h1 {
+  line-height: 1.4;
+}
+
+.request-form {
+  padding: 2em;
+  max-width: 540px;
+  width: 100%;
+  -webkit-box-shadow: 1px 2px 18px 1px #cccccc5b;
+          box-shadow: 1px 2px 18px 1px #cccccc5b;
+  border-radius: 10px;
+  margin: 1em auto;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background: #ffffff;
+  text-align: center;
+}
+
+.request-form h1 {
+  margin-bottom: .5em;
+}
+
+form .input-group {
+  text-align: start;
+}
+
+form .input-group .input-label,
+form .input-group .input-field {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+form .input-group textarea {
+  resize: vertical;
+}
+
+form .input-group .input-label {
+  margin-bottom: 5px;
+}
+
+form .input-group .input-field {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+
+form .input-group .input-field:not([type="submit"]) {
+  background: #e0e0e0;
+}
+
+form .input-group .input-field:not([type="submit"]):focus {
+  background: #f5f5f5;
+  border: 2px solid rgba(57, 93, 146, 0.38);
+  -webkit-box-shadow: 0 0 8px 0 rgba(57, 93, 146, 0.28);
+          box-shadow: 0 0 8px 0 rgba(57, 93, 146, 0.28);
+}
+
+form .input-group .input-field[type="submit"] {
+  background: #395d92;
+  text-align: center;
+  color: white;
+}
+
+form .input-group .field-errors {
+  margin: .5em;
+  margin-left: 2em;
+  color: #e64d4d;
+  font-size: 80%;
+}
+
+form .input-group .field-errors .field-error:not(:last-child) {
+  margin-bottom: .4em;
+}
+
+form .input-group:not(:last-child) {
+  margin-bottom: 1em;
+}
+/*# sourceMappingURL=style.css.map */

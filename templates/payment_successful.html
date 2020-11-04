@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Payment successful</title>
+</head>
+
+<body>
+    <div class="center-page">
+        <h1 class="success">Purchase successful!!</h1>
+        <p>You have successfully purchased your waec scratch card. 
+            You'll receive an email containing the scratch card
+            details in the email address you entered shortly.</p>
+        <a href="{{ url_for('home') }}" class="btn">Buy again</a>
+    </div>
+</body>
+
+</html>
