@@ -95,12 +95,14 @@ admin = Admin(app, index_view=MyAdminIndexView(),
 
 
 class User(UserMixin, db.Model):
+    __tablename__ = 'users'
+
     USER_TYPES = ('regular', 'admin', 'super_admin')
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
-    user_type = db.Column(db.Enum(*USER_TYPES), name="user_type", default='regular')
+    user_type = db.Column(db.Enum(*USER_TYPES, name="user_type_enum"), default='regular')
 
     def __repr__(self):
         return "<User: %s>" % self.email
@@ -114,6 +116,7 @@ class WaecECard(db.Model):
     serial_number = db.Column(db.String(32), nullable=False)
     purchase = db.relationship(
         'Purchase', backref='waec_e_card', uselist=False)
+    is_assigned = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return "<WaecECard: %s>" % self.serial_number
@@ -210,8 +213,9 @@ def checkAndGiveValue(data, reference):
             note=note, currency=currency)
 
         # Check if there's an available card to assign
-        card = WaecECard.query.filter_by(purchase=None).first()
+        card = WaecECard.query.filter_by(purchase=None, is_assigned=False).first()
         if card:
+            card.is_assigned = True
             purchase.waec_e_card = card
 
             # Attempt to send email containing card details
