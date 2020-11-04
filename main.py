@@ -100,7 +100,7 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True)
     password = db.Column(db.String(100))
     name = db.Column(db.String(1000))
-    user_type = db.Column(db.Enum(*USER_TYPES), default='regular')
+    user_type = db.Column(db.Enum(*USER_TYPES), name="user_type", default='regular')
 
     def __repr__(self):
         return "<User: %s>" % self.email
